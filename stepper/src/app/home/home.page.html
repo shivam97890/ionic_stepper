@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  
+<mat-horizontal-stepper style="height:100%;" linear #stepper fxShow="false" fxShow.gt-sm>
+  <mat-step  [stepControl]="firstFormGroup" errorMessage="Name is required.">
+      <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your name</ng-template>
+          <mat-form-field>
+              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+              <button mat-button matStepperNext>Next</button>
+          </div>
+      </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+      <form [formGroup]="secondFormGroup" style="margin-left: 32%">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <mat-form-field>
+              <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+          </div>
+      </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup" style="margin-left:64%">
+        <ng-template matStepLabel>Contact Number</ng-template>
+        <mat-form-field>
+            <input matInput placeholder="Contact Number" formControlName="thirdCtrl" required>
+        </mat-form-field>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+        </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <div style="float:right;text-align:right">
+    You are now done.
+    <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+</div>
+</mat-step>
+</mat-horizontal-stepper>
+<mat-vertical-stepper style="height:100vh" linear fxHide="false" fxHide.gt-sm>
+  <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your name</ng-template>
+          <mat-form-field>
+              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+              <button mat-button matStepperNext>Next</button>
+          </div>
+      </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <mat-form-field>
+              <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+          </div>
+      </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Contact Number</ng-template>
+        <mat-form-field>
+            <input matInput placeholder="Contact Number" formControlName="thirdCtrl" required>
+        </mat-form-field>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+        </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+</mat-step>
+</mat-vertical-stepper>
+
+</ion-content>
